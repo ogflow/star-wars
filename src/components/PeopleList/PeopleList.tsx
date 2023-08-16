@@ -1,5 +1,6 @@
 "use client";
 import { Box, Button, Grid, Spinner } from "grommet";
+import Link from "next/link";
 import useSWRInfinite, { SWRInfiniteKeyLoader } from "swr/infinite";
 import PersonCard from "../PersonCard/PersonCard";
 
@@ -33,9 +34,14 @@ export default function PeopleList() {
   return (
     <Grid columns={{ count: "fit", size: "480px" }} gap="medium">
       {isEmpty && <p>No people live here!</p>}
-      {people?.map((person) => (
-        <PersonCard key={person.url} person={person} />
-      ))}
+      {people?.map((person) => {
+        const href = `/people/${person.url.split("/")[5]}`;
+        return (
+          <Link key={person.url} href={href}>
+            <PersonCard person={person} />
+          </Link>
+        );
+      })}
       {error && (
         <Box>
           <p>Failed to load</p>
