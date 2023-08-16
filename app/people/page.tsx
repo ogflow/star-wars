@@ -1,5 +1,5 @@
-import PeopleList from "@/components/PeopleList/PeopleList";
 import { Heading, Page, PageContent } from "grommet";
+import PeopleList from "./people-list";
 
 export const metadata = {
   title: "List of characters — Star Wars App",
