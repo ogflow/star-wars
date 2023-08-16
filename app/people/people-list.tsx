@@ -2,7 +2,7 @@
 import { Box, Button, Grid, Spinner } from "grommet";
 import Link from "next/link";
 import useSWRInfinite, { SWRInfiniteKeyLoader } from "swr/infinite";
-import PersonCard from "../PersonCard/PersonCard";
+import PersonCard from "./person-card";
 
 const getKey: SWRInfiniteKeyLoader = (pageIndex, prevPageData) => {
   if (prevPageData && !prevPageData.next) return null;
