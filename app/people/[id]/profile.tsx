@@ -16,9 +16,7 @@ export default function Profile({ person }: Props) {
     error,
     isLoading,
     mutate,
-  } = useSWR(shouldFetch ? planetId : null, getPlanet, {
-    shouldRetryOnError: false,
-  });
+  } = useSWR(shouldFetch ? planetId : null, getPlanet);
 
   const onFetchPlanet = () => {
     setShouldFetch(true);

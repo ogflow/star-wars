@@ -18,7 +18,7 @@ export default function PeopleList() {
   const { data, error, isLoading, size, setSize, mutate } = useSWRInfinite(
     getKey,
     fetcher,
-    { revalidateFirstPage: false, shouldRetryOnError: false }
+    { revalidateFirstPage: false }
   );
 
   if (isLoading) return <Spinner size="medium" />;
