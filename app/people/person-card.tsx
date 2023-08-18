@@ -1,5 +1,5 @@
 "use client";
-import { getPerson } from "@/api/people";
+import getPerson from "@/api/people";
 import { Card, CardBody, Heading, Image, Layer, Spinner } from "grommet";
 import Link from "next/link";
 import { useState } from "react";

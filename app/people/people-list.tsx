@@ -1,17 +1,16 @@
 "use client";
+import { useGetPeople } from "@/api/people";
+import usePeopleStore from "@/store/usePeopleStore";
 import { Box, Button, Grid, Spinner } from "grommet";
-import useSWRInfinite, { SWRInfiniteKeyLoader } from "swr/infinite";
+import useSWRInfinite from "swr/infinite";
+import { useDebounce } from "usehooks-ts";
 import PersonCard from "./person-card";
 
-const getKey: SWRInfiniteKeyLoader = (pageIndex, prevPageData) => {
-  if (prevPageData && !prevPageData.next) return null;
-  return `${process.env.NEXT_PUBLIC_API_BASE_PATH}/people/?page=${
-    pageIndex + 1
-  }`;
-};
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 export default function PeopleList() {
+  const query = usePeopleStore((store) => store.query);
+  const debouncedQuery = useDebounce(query, 300);
+  const [getKey, fetcher] = useGetPeople(debouncedQuery);
+
   const { data, error, isLoading, size, setSize, mutate } = useSWRInfinite(
     getKey,
     fetcher,

@@ -1,4 +1,4 @@
-import { getPerson } from "@/api/people";
+import getPerson from "@/api/people";
 import { Page, PageContent } from "grommet";
 import { Metadata } from "next";
 import Profile from "./profile";
