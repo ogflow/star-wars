@@ -10,7 +10,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         shouldRetryOnError: false,
       }}
     >
-      <Grommet theme={theme} themeMode="dark" full>
+      <Grommet theme={theme} full>
         {children}
       </Grommet>
     </SWRConfig>
