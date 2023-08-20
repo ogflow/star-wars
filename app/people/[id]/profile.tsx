@@ -85,7 +85,7 @@ export default function Profile({ person }: Props) {
         </CardBody>
         {!planet && !error && (
           <CardFooter pad="medium">
-            <Button onClick={onFetchPlanet} busy={isLoading}>
+            <Button primary onClick={onFetchPlanet} busy={isLoading}>
               Learn about their homeworld
             </Button>
           </CardFooter>

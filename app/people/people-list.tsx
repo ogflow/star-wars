@@ -37,13 +37,14 @@ export default function PeopleList() {
         ))}
       </Grid>
       {error && (
-        <Box>
+        <Box direction="column" align="center" gap="medium">
           <p>Failed to load</p>
           <Button onClick={() => mutate()}>Retry</Button>
         </Box>
       )}
       {hasMore && !error && (
         <Button
+          primary
           onClick={() => setSize(size + 1)}
           busy={isLoadingMore}
           alignSelf="center"
