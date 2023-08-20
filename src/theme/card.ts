@@ -5,13 +5,42 @@ import palette from "./palette";
 const card: ThemeType["card"] = {
   container: {
     extend: () => `
+      &.person-specification--mammal {
+        --classification-color: ${palette.extra.mammal.primary};
+        --classification-color-contrast:  ${palette.extra.mammal.contrast};
+      }
+      &.person-specification--artifical {
+        --classification-color: ${palette.extra.artifical.primary};
+        --classification-color-contrast:  ${palette.extra.artifical.contrast};
+      }
+      &.person-specification--sentient {
+        --classification-color: ${palette.extra.sentient.primary};
+        --classification-color-contrast:  ${palette.extra.sentient.contrast};
+      }
+      &.person-specification--gastropod {
+        --classification-color: ${palette.extra.gastropod.primary};
+        --classification-color-contrast:  ${palette.extra.gastropod.contrast};
+      }
+      &.person-specification--reptile {
+        --classification-color: ${palette.extra.reptile.primary};
+        --classification-color-contrast:  ${palette.extra.reptile.contrast};
+      }
+      &.person-specification--amphibian {
+        --classification-color: ${palette.extra.amphibian.primary};
+        --classification-color-contrast:  ${palette.extra.amphibian.contrast};
+      }
+      &.person-specification--insectoid {
+        --classification-color: ${palette.extra.insectoid.primary};
+        --classification-color-contrast:  ${palette.extra.insectoid.contrast};
+      }
+
       box-shadow: none;
       border: 1px solid ${palette.border};
       background: ${palette.background.front};
       position: relative;
       transition: 
         ${getTransition(["background", "transform"], "0.25s")}, 
-        ${getTransition("box-shadow", "0.5s", "ease-in-out")};
+        ${getTransition("box-shadow", "0.5s", "ease-out")};
 
       &:after {
         visibility: hidden;
@@ -34,7 +63,9 @@ const card: ThemeType["card"] = {
 
       &:hover {
         background: ${palette.background.contrast};
-        box-shadow: 0px 2px 8px 2px ${palette.extra.blueGlow};
+        box-shadow: 
+          0px 2px 8px 2px 
+          var(--classification-color, ${palette.brand.primary});
         transform: scale(1.02);
         animation: cardGlowing 2s infinite;
 
@@ -49,10 +80,14 @@ const card: ThemeType["card"] = {
 
       @keyframes cardGlowing {
         0%, 100% {
-          box-shadow: 0px 2px 8px px ${palette.extra.blueGlow};
+          box-shadow: 
+            0px 2px 8px 2px 
+            var(--classification-color, ${palette.brand.primary});
         }
         50% {
-          box-shadow: 0px 2px 16px 8px ${palette.extra.violetGlow};
+          box-shadow: 
+            0px 2px 16px 12px 
+            var(--classification-color-contrast, ${palette.brand.contrast})
         }
       }
       

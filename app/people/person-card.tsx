@@ -1,6 +1,7 @@
 "use client";
 import getPerson from "@/api/people";
-import { Card, CardBody, Heading, Image, Layer, Spinner } from "grommet";
+import { getPersonSpecification } from "@/utils/species";
+import { Card, CardBody, Heading, Image, Layer, Spinner, Tag } from "grommet";
 import Link from "next/link";
 import { useState } from "react";
 import Profile from "./[id]/profile";
@@ -11,6 +12,7 @@ type Props = {
 export default function PersonCard({ person }: Props) {
   const [modalPerson, setModalPerson] = useState<Person | boolean>(false);
   const personId = person.url.split("/")[5];
+  const specification = getPersonSpecification(person);
 
   const handleModalOpen = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -37,13 +39,25 @@ export default function PersonCard({ person }: Props) {
           handleModalOpen(e, personId)
         }
       >
-        <Card direction="row">
+        <Card
+          direction="row"
+          className={"person-specification--" + specification}
+        >
           <Image
             alt={"picture of " + person.name}
             src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
           />
-          <CardBody pad="medium">
+          <CardBody pad="medium" gap="small">
             <Heading level="3">{person.name}</Heading>
+            <Tag
+              value={specification}
+              alignSelf="start"
+              // TODO: despite of typescript style works well here, should be fixed in Grommet
+              style={{
+                background: "var(--classification-color, grey)",
+                color: "black",
+              }}
+            />
           </CardBody>
         </Card>
       </Link>

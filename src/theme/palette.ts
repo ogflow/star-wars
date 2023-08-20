@@ -16,8 +16,34 @@ const palette = {
   border: "#3f424a",
   focus: "#0044ff",
   extra: {
-    blueGlow: "#3c4dcf",
-    violetGlow: "#883ccf",
+    mammal: {
+      primary: "#fce89d",
+      contrast: "#d69615",
+    },
+    artifical: {
+      primary: "#bec4cf",
+      contrast: "#f2f7ff",
+    },
+    sentient: {
+      primary: "#ba72db",
+      contrast: "#9c18d9",
+    },
+    gastropod: {
+      primary: "#eb996a",
+      contrast: "#e05709",
+    },
+    reptile: {
+      primary: "#69d962",
+      contrast: "#09e89a",
+    },
+    amphibian: {
+      primary: "#638ecf",
+      contrast: "#0e68f0",
+    },
+    insectoid: {
+      primary: "#bf726f",
+      contrast: "#ba1c16",
+    },
   },
 };
 
