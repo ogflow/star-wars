@@ -17,7 +17,7 @@ export default function PeopleList() {
     { revalidateFirstPage: false }
   );
 
-  if (isLoading) return <Spinner size="medium" />;
+  if (isLoading) return <Spinner size="medium" alignSelf="center" />;
 
   const people: Person[] = data
     ? data?.reduce((acc, obj) => [...acc, ...obj?.results], [])
@@ -29,11 +29,13 @@ export default function PeopleList() {
   const hasMore = people?.length < data?.[0]?.count;
 
   return (
-    <Grid columns={{ count: "fit", size: "480px" }} gap="medium">
+    <Box gap="medium">
       {isEmpty && <p>No people live here!</p>}
-      {people?.map((person) => (
-        <PersonCard key={person.url} person={person} />
-      ))}
+      <Grid columns={{ count: "fit", size: "520px" }} gap="medium">
+        {people?.map((person) => (
+          <PersonCard key={person.url} person={person} />
+        ))}
+      </Grid>
       {error && (
         <Box>
           <p>Failed to load</p>
@@ -41,10 +43,14 @@ export default function PeopleList() {
         </Box>
       )}
       {hasMore && !error && (
-        <Button onClick={() => setSize(size + 1)} busy={isLoadingMore}>
+        <Button
+          onClick={() => setSize(size + 1)}
+          busy={isLoadingMore}
+          alignSelf="center"
+        >
           Load more
         </Button>
       )}
-    </Grid>
+    </Box>
   );
 }

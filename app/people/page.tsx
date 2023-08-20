@@ -9,7 +9,7 @@ export const metadata = {
 export default async function PeoplePage() {
   return (
     <Page kind="wide">
-      <PageContent>
+      <PageContent gap="medium">
         <Heading>List of Star Wars Characters</Heading>
         <Toolbar />
         <PeopleList />

@@ -1,4 +1,5 @@
 "use client";
+import StyledComponentsRegistry from "@/lib/registry";
 import { theme } from "@/theme/theme";
 import { Grommet } from "grommet";
 import { SWRConfig } from "swr";
@@ -10,9 +11,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
         shouldRetryOnError: false,
       }}
     >
-      <Grommet theme={theme} full>
-        {children}
-      </Grommet>
+      <StyledComponentsRegistry>
+        <Grommet theme={theme} full>
+          {children}
+        </Grommet>
+      </StyledComponentsRegistry>
     </SWRConfig>
   );
 }
