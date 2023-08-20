@@ -52,7 +52,6 @@ export default function PersonCard({ person }: Props) {
 
     window.addEventListener("popstate", handleBackButton);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("popstate", handleBackButton);
     };
