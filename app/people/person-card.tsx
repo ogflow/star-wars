@@ -1,10 +1,12 @@
 "use client";
 import getPerson from "@/api/people";
 import { getPersonSpecification } from "@/utils/species";
+import classNames from "classnames";
 import { Card, CardBody, Heading, Image, Layer, Spinner, Tag } from "grommet";
 import Link from "next/link";
 import { useState } from "react";
 import Profile from "./[id]/profile";
+import styles from "./person-card.module.css";
 
 type Props = {
   person: Person;
@@ -41,11 +43,15 @@ export default function PersonCard({ person }: Props) {
       >
         <Card
           direction="row"
-          className={"person-specification--" + specification}
+          className={classNames(
+            styles["root"],
+            styles[`class-${specification}`]
+          )}
         >
           <Image
             alt={"picture of " + person.name}
             src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
+            className={styles[""]}
           />
           <CardBody pad="medium" gap="small">
             <Heading level="3">{person.name}</Heading>
