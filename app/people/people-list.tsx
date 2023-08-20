@@ -5,6 +5,7 @@ import { getPersonSpecification } from "@/utils/species";
 import { Box, Button, Grid, Spinner, Text } from "grommet";
 import useSWRInfinite from "swr/infinite";
 import { useDebounce } from "usehooks-ts";
+import styles from "./people-list.module.css";
 import PersonCard from "./person-card";
 
 export default function PeopleList() {
@@ -61,7 +62,7 @@ export default function PeopleList() {
             Server returned no results. Try again later!
           </Text>
         ))}
-      <Grid columns={{ count: "fit", size: "520px" }} gap="medium">
+      <Grid gap="medium" className={styles.grid}>
         {renderedPeople}
       </Grid>
       {error && (

@@ -1,0 +1,9 @@
+div.grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+}
+
+@media only screen and (min-width: 640px) {
+  div.grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 0.5fr));
+  }
+}
