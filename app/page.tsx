@@ -26,7 +26,15 @@ export default async function Home() {
           </Link>
         </PageContent>
       </Page>
-      <video autoPlay loop muted controls={false} className={styles.video}>
+      <video
+        autoPlay
+        loop
+        muted
+        // @ts-ignore
+        playsinline
+        controls={false}
+        className={styles.video}
+      >
         <source src="/hyperspace.mp4" />
       </video>
     </>
