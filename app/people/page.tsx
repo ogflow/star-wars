@@ -1,3 +1,4 @@
+import Header from "@/compoments/header";
 import { Heading, Page, PageContent } from "grommet";
 import PeopleList from "./people-list";
 import Toolbar from "./toolbar";
@@ -9,8 +10,9 @@ export const metadata = {
 export default async function PeoplePage() {
   return (
     <Page kind="wide">
-      <PageContent gap="medium">
-        <Heading>List of Star Wars Characters</Heading>
+      <Header />
+      <PageContent gap="medium" as="main" pad="medium">
+        <Heading>List of Characters</Heading>
         <Toolbar />
         <PeopleList />
       </PageContent>

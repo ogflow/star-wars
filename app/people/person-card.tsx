@@ -1,6 +1,7 @@
 "use client";
 import getPerson from "@/api/people";
-import { Card, CardBody, Heading, Image, Layer, Spinner, Tag } from "grommet";
+import { Card, CardBody, Heading, Layer, Spinner, Tag } from "grommet";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Profile from "./[id]/profile";
@@ -74,11 +75,14 @@ export default function PersonCard({ person, specification }: Props) {
             } as React.CSSProperties
           }
         >
-          <Image
-            alt={"picture of " + person.name}
-            src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
-            className={styles.image}
-          />
+          <div className={styles.image}>
+            <Image
+              alt={"picture of " + person.name}
+              src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
+              width={320}
+              height={240}
+            />
+          </div>
           <CardBody pad="medium" gap="small">
             <Heading level="3">{person.name}</Heading>
             <Tag
@@ -99,7 +103,7 @@ export default function PersonCard({ person, specification }: Props) {
           className={styles.modal}
         >
           {modalPerson === true ? (
-            <Spinner size="medium" />
+            <Spinner size="medium" margin="large" />
           ) : (
             <Profile person={modalPerson} />
           )}

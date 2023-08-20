@@ -1,4 +1,5 @@
 import getPerson from "@/api/people";
+import Header from "@/compoments/header";
 import { Page, PageContent } from "grommet";
 import { Metadata } from "next";
 import Profile from "./profile";
@@ -21,8 +22,9 @@ export default async function PersonPage({ params: { id } }: Props) {
   const person = await getPerson(id);
 
   return (
-    <Page kind="narrow">
-      <PageContent>
+    <Page kind="full">
+      <Header />
+      <PageContent as="main" align="center">
         <Profile person={person} />
       </PageContent>
     </Page>

@@ -8,12 +8,12 @@ import {
   CardBody,
   CardFooter,
   Heading,
-  Image,
   NameValueList,
   NameValuePair,
   Tag,
   Text,
 } from "grommet";
+import Image from "next/image";
 import { useState } from "react";
 import useSWR from "swr";
 import PlanetInfo from "./planet";
@@ -41,8 +41,8 @@ export default function Profile({ person }: Props) {
 
   return (
     <Box
-      gap="medium"
       className={styles.root}
+      align="center"
       style={
         {
           "--classification-color": `var(--extra-${specification}-primary)`,
@@ -53,53 +53,66 @@ export default function Profile({ person }: Props) {
       <Box className={styles.image}>
         <Image
           alt={"picture of " + person.name}
-          src={`https://loremflickr.com/1024/920/face,starwars/?random=${person.name}&lock=${personId}`}
+          src={`https://loremflickr.com/1240/920/face,starwars/?random=${person.name}&lock=${personId}`}
+          width={1536}
+          height={920}
         />
       </Box>
-      <Card>
-        <CardBody gap="small" pad="medium">
-          <Box direction="row" justify="between">
-            <Heading>{person.name}</Heading>
-            <Tag
-              value={specification}
-              alignSelf="center"
-              // TODO: despite of typescript className prop works well here, should be fixed in Grommet
-              // @ts-ignore
-              className={styles.tag}
-            />
-          </Box>
-          <NameValueList>
-            <NameValuePair name="Born in">
-              <Text color="text-strong">{person.birth_year}</Text>
-            </NameValuePair>
-            <NameValuePair name="Height">
-              <Text color="text-strong">{person.height} cm</Text>
-            </NameValuePair>
-            <NameValuePair name="Mass">
-              <Text color="text-strong">{person.mass} kg</Text>
-            </NameValuePair>
-            <NameValuePair name="Appeared in">
-              <Text color="text-strong">{person.films.length} films</Text>
-            </NameValuePair>
-          </NameValueList>
-        </CardBody>
-        {!planet && !error && (
-          <CardFooter pad="medium">
-            <Button primary onClick={onFetchPlanet} busy={isLoading}>
-              Learn about their homeworld
-            </Button>
-          </CardFooter>
-        )}
-        {error && (
-          <CardFooter pad="medium" direction="column">
-            <p>Failed to load planet details</p>
-            <Button onClick={() => mutate()} busy={isLoading} color="brand">
-              Retry
-            </Button>
-          </CardFooter>
-        )}
-        {planet && <PlanetInfo planet={planet} />}
-      </Card>
+      <Box pad="medium">
+        <Card className={styles.card} alignSelf="center">
+          <CardBody gap="small" pad="medium">
+            <Box direction="row" justify="between">
+              <Heading>{person.name}</Heading>
+              <Tag
+                value={specification}
+                alignSelf="center"
+                // TODO: despite of typescript className prop works well here, should be fixed in Grommet
+                // @ts-ignore
+                className={styles.tag}
+              />
+            </Box>
+            <NameValueList>
+              <NameValuePair name="Born in">
+                <Text color="text-strong">{person.birth_year}</Text>
+              </NameValuePair>
+              <NameValuePair name="Height">
+                <Text color="text-strong">{person.height} cm</Text>
+              </NameValuePair>
+              <NameValuePair name="Mass">
+                <Text color="text-strong">{person.mass} kg</Text>
+              </NameValuePair>
+              <NameValuePair name="Appeared in">
+                <Text color="text-strong">{person.films.length} films</Text>
+              </NameValuePair>
+            </NameValueList>
+          </CardBody>
+          {!planet && !error && (
+            <CardFooter pad="medium">
+              <Button primary onClick={onFetchPlanet} busy={isLoading}>
+                Learn about their homeworld
+              </Button>
+            </CardFooter>
+          )}
+          {error && (
+            <CardFooter pad="medium" direction="column">
+              <p>Failed to load planet details</p>
+              <Button onClick={() => mutate()} busy={isLoading} color="brand">
+                Retry
+              </Button>
+            </CardFooter>
+          )}
+          {planet && <PlanetInfo planet={planet} />}
+        </Card>
+      </Box>
+
+      <Box className={styles["background-image"]} align="center">
+        <Image
+          alt=""
+          src={`https://loremflickr.com/1240/920/face,starwars/?random=${person.name}&lock=${personId}`}
+          width={1536}
+          height={920}
+        />
+      </Box>
     </Box>
   );
 }
