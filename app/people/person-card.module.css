@@ -105,3 +105,8 @@
     width: 50%;
   }
 }
+
+.modal {
+  padding: 24px;
+  overflow-y: auto;
+}

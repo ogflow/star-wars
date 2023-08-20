@@ -62,7 +62,12 @@ export default function PersonCard({ person }: Props) {
         </Card>
       </Link>
       {modalPerson && (
-        <Layer onEsc={handleModalClose} onClickOutside={handleModalClose} modal>
+        <Layer
+          modal
+          onEsc={handleModalClose}
+          onClickOutside={handleModalClose}
+          className={styles.modal}
+        >
           {modalPerson === true ? (
             <Spinner size="medium" />
           ) : (
