@@ -5,13 +5,18 @@ div.root {
 div.root div.image {
   aspect-ratio: 1/ 1;
   overflow: hidden;
-  width: 800px;
+  width: 1488px;
+  z-index: 2;
 }
 div.root div.image > img {
   object-fit: cover;
-  object-position: 50% 50%;
   width: 100%;
   height: 100%;
+}
+
+div.card {
+  width: 800px;
+  z-index: 2;
 }
 
 .tag {
@@ -19,8 +24,22 @@ div.root div.image > img {
   color: var(--background-front);
 }
 
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.background-image img {
+  filter: blur(40px);
+  opacity: 0.5;
+}
+
 @media only screen and (min-width: 769px) {
   div.root div.image {
     aspect-ratio: 2 / 1;
+    max-height: 480px;
   }
 }
