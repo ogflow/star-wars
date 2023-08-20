@@ -10,6 +10,7 @@ type Props = {
 };
 export default function Profile({ person }: Props) {
   const [shouldFetch, setShouldFetch] = useState(false);
+  const personId = person.url.split("/")[5];
   const planetId = person.homeworld.split("/")[5];
   const {
     data: planet,
@@ -26,7 +27,7 @@ export default function Profile({ person }: Props) {
     <Box>
       <Image
         alt={"picture of " + person.name}
-        src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}`}
+        src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
       />
       <Heading>{person.name}</Heading>
       <p>Appeared in {person.films.length} films</p>

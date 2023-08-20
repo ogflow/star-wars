@@ -40,7 +40,7 @@ export default function PersonCard({ person }: Props) {
         <Card direction="row">
           <Image
             alt={"picture of " + person.name}
-            src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}`}
+            src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
           />
           <CardBody pad="medium">
             <Heading level="3">{person.name}</Heading>
