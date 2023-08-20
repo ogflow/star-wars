@@ -46,6 +46,10 @@
   color: var(--background-front);
 }
 
+div.modal {
+  background: var(--background-front);
+}
+
 @keyframes cardGlowing {
   0%,
   100% {
