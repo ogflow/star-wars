@@ -1,9 +1,9 @@
+import { ThemeType } from "grommet";
 import button from "./button";
+import card from "./card";
 import palette from "./palette";
 
-export const theme = {
-  rounding: 8,
-  spacing: 28,
+export const theme: ThemeType = {
   global: {
     font: {
       family: "Helvetica",
@@ -27,4 +27,5 @@ export const theme = {
     },
   },
   button,
+  card,
 };

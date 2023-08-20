@@ -29,7 +29,7 @@ export default function PeopleList() {
   const hasMore = people?.length < data?.[0]?.count;
 
   return (
-    <Grid columns={{ count: "fit", size: "480px" }} gap="medium">
+    <Grid columns={{ count: "fit", size: "520px" }} gap="medium">
       {isEmpty && <p>No people live here!</p>}
       {people?.map((person) => (
         <PersonCard key={person.url} person={person} />

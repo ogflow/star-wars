@@ -15,6 +15,10 @@ const palette = {
   },
   border: "#3f424a",
   focus: "#0044ff",
+  extra: {
+    blueGlow: "#3c4dcf",
+    violetGlow: "#883ccf",
+  },
 };
 
 export default palette;
