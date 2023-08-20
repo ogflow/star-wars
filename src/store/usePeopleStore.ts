@@ -1,12 +1,23 @@
 import { create } from "zustand";
 
-type PeopleStore = {
+type PeopleStoreProps = {
   query: string;
-  setQuery: (query: string) => void;
+  filters: string[];
 };
-const usePeopleStore = create<PeopleStore>((set) => ({
+type PeopleStoreState = PeopleStoreProps & {
+  setQuery: (query: string) => void;
+  setFilters: (filters: string[]) => void;
+};
+
+const defaultState = {
   query: "",
-  setQuery: (query) => set((state) => ({ query })),
+  filters: [],
+};
+
+const usePeopleStore = create<PeopleStoreState>((set) => ({
+  ...defaultState,
+  setQuery: (query) => set(() => ({ query })),
+  setFilters: (filters) => set(() => ({ filters })),
 }));
 
 export default usePeopleStore;

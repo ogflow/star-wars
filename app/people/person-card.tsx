@@ -1,6 +1,5 @@
 "use client";
 import getPerson from "@/api/people";
-import { getPersonSpecification } from "@/utils/species";
 import { Card, CardBody, Heading, Image, Layer, Spinner, Tag } from "grommet";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -9,11 +8,11 @@ import styles from "./person-card.module.css";
 
 type Props = {
   person: Person;
+  specification: string;
 };
-export default function PersonCard({ person }: Props) {
+export default function PersonCard({ person, specification }: Props) {
   const [modalPerson, setModalPerson] = useState<Person | boolean>(false);
   const personId = person.url.split("/")[5];
-  const specification = getPersonSpecification(person);
 
   const abortControllerRef = useRef<AbortController | null>(null);
 
