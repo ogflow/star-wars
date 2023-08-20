@@ -12,7 +12,10 @@ export default function PersonCard({ person }: Props) {
   const [modalPerson, setModalPerson] = useState<Person | boolean>(false);
   const personId = person.url.split("/")[5];
 
-  const handleModalOpen = async (e: MouseEvent, personId: string) => {
+  const handleModalOpen = async (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    personId: string
+  ) => {
     e.preventDefault();
     setModalPerson(true);
     const res = await getPerson(personId);
@@ -30,7 +33,9 @@ export default function PersonCard({ person }: Props) {
     <>
       <Link
         href={`/people/${personId}`}
-        onClick={(e) => handleModalOpen(e, personId)}
+        onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) =>
+          handleModalOpen(e, personId)
+        }
       >
         <Card direction="row">
           <Image
