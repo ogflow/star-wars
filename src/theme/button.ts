@@ -1,6 +1,8 @@
+import { ThemeType } from "grommet";
+import { getTransition } from "./helpers";
 import palette from "./palette";
 
-const button = {
+const button: ThemeType["button"] = {
   extend: () => `
     background-color: ${palette.brand.primary};
     color: ${palette.background.primary};
@@ -8,9 +10,9 @@ const button = {
     text-align: center;
     padding: 11px 16px;
     border-radius: 25px;
-    transition: all 0.125s ease;
+    transition: ${getTransition(["transform", "background"])};
 
-    &:hover {
+    &:hover, &:focus {
       transform: scale(1.02);
     }
 
