@@ -22,7 +22,7 @@ export default async function PersonPage({ params: { id } }: Props) {
   const person = await getPerson(id);
 
   return (
-    <Page kind="full">
+    <Page kind="full" overflow={{ horizontal: "hidden", vertical: "auto" }}>
       <Header />
       <PageContent as="main" align="center">
         <Profile person={person} />
