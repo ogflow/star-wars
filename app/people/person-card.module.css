@@ -1,3 +1,8 @@
+.container {
+  container-type: inline-size;
+  container-name: wrapper;
+}
+
 .root {
   transition: background 0.25s ease, transform 0.25s ease,
     box-shadow 0.5s ease-out;
@@ -34,6 +39,11 @@
 
 .root:active {
   transform: scale(1);
+}
+
+.tag {
+  background: var(--classification-color, var(--text-xweak));
+  color: var(--background-front);
 }
 
 .root.class-mammal {
@@ -83,5 +93,15 @@
   }
   33% {
     transform: translateX(100%);
+  }
+}
+
+@container wrapper (min-width: 400px) {
+  div.root {
+    flex-direction: row;
+  }
+
+  img.image {
+    width: 50%;
   }
 }

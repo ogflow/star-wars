@@ -40,29 +40,23 @@ export default function PersonCard({ person }: Props) {
         onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) =>
           handleModalOpen(e, personId)
         }
+        className={styles.container}
       >
         <Card
-          direction="row"
-          className={classNames(
-            styles["root"],
-            styles[`class-${specification}`]
-          )}
+          className={classNames(styles.root, styles[`class-${specification}`])}
         >
           <Image
             alt={"picture of " + person.name}
             src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
-            className={styles[""]}
+            className={styles.image}
           />
           <CardBody pad="medium" gap="small">
             <Heading level="3">{person.name}</Heading>
             <Tag
               value={specification}
               alignSelf="start"
-              // TODO: despite of typescript style works well here, should be fixed in Grommet
-              style={{
-                background: "var(--classification-color, grey)",
-                color: "black",
-              }}
+              // TODO: despite of typescript className prop works well here, should be fixed in Grommet
+              className={styles.tag}
             />
           </CardBody>
         </Card>
