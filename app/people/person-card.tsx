@@ -3,7 +3,7 @@ import getPerson from "@/api/people";
 import { getPersonSpecification } from "@/utils/species";
 import { Card, CardBody, Heading, Image, Layer, Spinner, Tag } from "grommet";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Profile from "./[id]/profile";
 import styles from "./person-card.module.css";
 
@@ -15,19 +15,30 @@ export default function PersonCard({ person }: Props) {
   const personId = person.url.split("/")[5];
   const specification = getPersonSpecification(person);
 
+  const abortControllerRef = useRef<AbortController | null>(null);
+
   const handleModalOpen = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     personId: string
   ) => {
     e.preventDefault();
     setModalPerson(true);
-    const res = await getPerson(personId);
+
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
+    const res = await getPerson(personId, controller);
 
     setModalPerson(res);
     window.history.pushState(null, "", "/people/" + personId);
   };
 
   const handleModalClose = () => {
+    if (modalPerson === true) {
+      abortControllerRef?.current?.abort();
+      return setModalPerson(false);
+    }
+
     setModalPerson(false);
     window.history.back();
   };
