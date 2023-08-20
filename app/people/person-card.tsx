@@ -4,7 +4,7 @@ import { getPersonSpecification } from "@/utils/species";
 import classNames from "classnames";
 import { Card, CardBody, Heading, Image, Layer, Spinner, Tag } from "grommet";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Profile from "./[id]/profile";
 import styles from "./person-card.module.css";
 
@@ -32,6 +32,21 @@ export default function PersonCard({ person }: Props) {
     setModalPerson(false);
     window.history.back();
   };
+
+  useEffect(() => {
+    const handleBackButton = (e: PopStateEvent) => {
+      if (!modalPerson) return;
+      setModalPerson(false);
+      e.preventDefault();
+    };
+
+    window.addEventListener("popstate", handleBackButton);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("popstate", handleBackButton);
+    };
+  }, [setModalPerson, modalPerson]);
 
   return (
     <>
