@@ -52,7 +52,6 @@ export default function PersonCard({ person }: Props) {
 
     window.addEventListener("popstate", handleBackButton);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("popstate", handleBackButton);
     };
@@ -87,6 +86,7 @@ export default function PersonCard({ person }: Props) {
               value={specification}
               alignSelf="start"
               // TODO: despite of typescript className prop works well here, should be fixed in Grommet
+              // @ts-ignore
               className={styles.tag}
             />
           </CardBody>

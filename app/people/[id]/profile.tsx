@@ -64,6 +64,7 @@ export default function Profile({ person }: Props) {
               value={specification}
               alignSelf="center"
               // TODO: despite of typescript className prop works well here, should be fixed in Grommet
+              // @ts-ignore
               className={styles.tag}
             />
           </Box>
