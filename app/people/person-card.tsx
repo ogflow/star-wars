@@ -75,13 +75,14 @@ export default function PersonCard({ person, specification }: Props) {
             } as React.CSSProperties
           }
         >
-          <Image
-            alt={"picture of " + person.name}
-            src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
-            width={320}
-            height={240}
-            className={styles.image}
-          />
+          <div className={styles.image}>
+            <Image
+              alt={"picture of " + person.name}
+              src={`https://loremflickr.com/320/240/face,starwars/?random=${person.name}&lock=${personId}`}
+              width={320}
+              height={240}
+            />
+          </div>
           <CardBody pad="medium" gap="small">
             <Heading level="3">{person.name}</Heading>
             <Tag

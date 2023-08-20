@@ -47,6 +47,11 @@
   color: var(--background-front);
 }
 
+div.image img {
+  width: 100%;
+  object-fit: cover;
+}
+
 div.modal {
   background: var(--background-front);
   max-width: 800px;
@@ -78,7 +83,7 @@ div.modal {
     flex-direction: row;
   }
 
-  img.image {
+  div.image {
     width: 50%;
   }
 }
