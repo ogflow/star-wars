@@ -31,11 +31,11 @@ export default async function Home() {
         loop
         muted
         // @ts-ignore
-        playsinline
+        playsInline
         controls={false}
         className={styles.video}
       >
-        <source src="/hyperspace.mp4" />
+        <source src="/hyperspace.mp4" type="video/mp4" />
       </video>
     </>
   );
