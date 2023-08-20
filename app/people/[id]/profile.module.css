@@ -1,11 +1,12 @@
 div.root {
   position: relative;
+  width: 100%;
 }
 
 div.root div.image {
   aspect-ratio: 1/ 1;
   overflow: hidden;
-  width: 1488px;
+  width: 1024px;
   z-index: 2;
 }
 div.root div.image > img {
@@ -26,11 +27,11 @@ div.card {
 
 .background-image {
   position: absolute;
-  top: 0;
+  top: -80px;
   left: 0;
   z-index: 0;
   width: 100%;
-  overflow: hidden;
+  pointer-events: none;
 }
 .background-image img {
   filter: blur(40px);
@@ -40,6 +41,6 @@ div.card {
 @media only screen and (min-width: 769px) {
   div.root div.image {
     aspect-ratio: 2 / 1;
-    max-height: 480px;
+    max-height: 560px;
   }
 }

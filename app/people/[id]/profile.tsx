@@ -42,6 +42,7 @@ export default function Profile({ person }: Props) {
   return (
     <Box
       className={styles.root}
+      align="center"
       style={
         {
           "--classification-color": `var(--extra-${specification}-primary)`,
@@ -104,7 +105,7 @@ export default function Profile({ person }: Props) {
         </Card>
       </Box>
 
-      <Box className={styles["background-image"]}>
+      <Box className={styles["background-image"]} align="center">
         <Image
           alt=""
           src={`https://loremflickr.com/1240/920/face,starwars/?random=${person.name}&lock=${personId}`}

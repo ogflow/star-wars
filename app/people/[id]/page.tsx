@@ -22,9 +22,9 @@ export default async function PersonPage({ params: { id } }: Props) {
   const person = await getPerson(id);
 
   return (
-    <Page kind="wide">
+    <Page kind="full">
       <Header />
-      <PageContent as="main">
+      <PageContent as="main" align="center">
         <Profile person={person} />
       </PageContent>
     </Page>
