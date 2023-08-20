@@ -39,7 +39,9 @@ export default function PeopleList() {
       {error && (
         <Box direction="column" align="center" gap="medium">
           <p>Failed to load</p>
-          <Button onClick={() => mutate()}>Retry</Button>
+          <Button onClick={() => mutate()} color="brand">
+            Retry
+          </Button>
         </Box>
       )}
       {hasMore && !error && (

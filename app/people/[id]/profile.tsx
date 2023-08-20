@@ -93,7 +93,7 @@ export default function Profile({ person }: Props) {
         {error && (
           <CardFooter pad="medium" direction="column">
             <p>Failed to load planet details</p>
-            <Button onClick={() => mutate()} busy={isLoading}>
+            <Button onClick={() => mutate()} busy={isLoading} color="brand">
               Retry
             </Button>
           </CardFooter>
