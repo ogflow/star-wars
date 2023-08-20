@@ -1,8 +1,14 @@
 import { SWRInfiniteKeyLoader } from "swr/infinite";
 
-export default async function getPerson(id: string): Promise<Person> {
+export default async function getPerson(
+  id: string,
+  controller?: AbortController
+): Promise<Person> {
+  const signal = controller?.signal;
+
   const res = await fetch(
-    process.env.NEXT_PUBLIC_API_BASE_PATH + "/people/" + id
+    process.env.NEXT_PUBLIC_API_BASE_PATH + "/people/" + id,
+    { signal }
   );
 
   if (!res.ok) throw new Error("failed to fetch data from api/people/:id");
