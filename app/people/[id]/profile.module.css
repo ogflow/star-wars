@@ -14,6 +14,11 @@ div.root div.image > img {
   height: 100%;
 }
 
+.tag {
+  background: var(--classification-color, var(--text-xweak));
+  color: var(--background-front);
+}
+
 @media only screen and (min-width: 769px) {
   div.root div.image {
     aspect-ratio: 2 / 1;

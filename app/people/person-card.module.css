@@ -46,35 +46,6 @@
   color: var(--background-front);
 }
 
-.root.class-mammal {
-  --classification-color: var(--extra-mammal-primary);
-  --classification-color-contrast: var(--extra-mammal-contrast);
-}
-.root.class-artifical {
-  --classification-color: var(--extra-artifical-primary);
-  --classification-color-contrast: var(--extra-artifical-contrast);
-}
-.root.class-sentient {
-  --classification-color: var(--extra-sentient-primary);
-  --classification-color-contrast: var(--extra-sentient-contrast);
-}
-.root.class-gastropod {
-  --classification-color: var(--extra-gastropod-primary);
-  --classification-color-contrast: var(--extra-gastropod-contrast);
-}
-.root.class-reptile {
-  --classification-color: var(--extra-reptile-primary);
-  --classification-color-contrast: var(--extra-reptile-contrast);
-}
-.root.class-amphibian {
-  --classification-color: var(--extra-amphibian-primary);
-  --classification-color-contrast: var(--extra-amphibian-contrast);
-}
-.root.class-insectoid {
-  --classification-color: var(--extra-insectoid-primary);
-  --classification-color-contrast: var(--extra-insectoid-contrast);
-}
-
 @keyframes cardGlowing {
   0%,
   100% {
@@ -104,9 +75,4 @@
   img.image {
     width: 50%;
   }
-}
-
-.modal {
-  padding: 24px;
-  overflow-y: auto;
 }

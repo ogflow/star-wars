@@ -1,6 +1,7 @@
 import { ThemeType } from "grommet";
 import button from "./button";
 import card from "./card";
+import layer from "./layer";
 import palette from "./palette";
 
 export const theme: ThemeType = {
@@ -28,4 +29,5 @@ export const theme: ThemeType = {
   },
   button,
   card,
+  layer,
 };

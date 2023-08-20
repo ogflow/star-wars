@@ -1,7 +1,6 @@
 "use client";
 import getPerson from "@/api/people";
 import { getPersonSpecification } from "@/utils/species";
-import classNames from "classnames";
 import { Card, CardBody, Heading, Image, Layer, Spinner, Tag } from "grommet";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -58,7 +57,13 @@ export default function PersonCard({ person }: Props) {
         className={styles.container}
       >
         <Card
-          className={classNames(styles.root, styles[`class-${specification}`])}
+          className={styles.root}
+          style={
+            {
+              "--classification-color": `var(--extra-${specification}-primary)`,
+              "--classification-color-contrast": `var(--extra-${specification}-contrast)`,
+            } as React.CSSProperties
+          }
         >
           <Image
             alt={"picture of " + person.name}
