@@ -87,6 +87,7 @@ export default function PersonCard({ person }: Props) {
               value={specification}
               alignSelf="start"
               // TODO: despite of typescript className prop works well here, should be fixed in Grommet
+              // @ts-ignore
               className={styles.tag}
             />
           </CardBody>
